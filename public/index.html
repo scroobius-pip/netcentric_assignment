@@ -1,0 +1,133 @@
+<html>
+  <header>
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css"
+    />
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script> -->
+    <style>
+      .lds-ring {
+        display: inline-block;
+        position: relative;
+        width: 64px;
+        height: 64px;
+      }
+      .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 51px;
+        height: 51px;
+        margin: 6px;
+        border: 6px solid blue;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: blue transparent transparent transparent;
+      }
+      .lds-ring div:nth-child(1) {
+        animation-delay: -0.45s;
+      }
+      .lds-ring div:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+      .lds-ring div:nth-child(3) {
+        animation-delay: -0.15s;
+      }
+      @keyframes lds-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </header>
+
+  <body>
+    <div class="uk-flex uk-flex-center uk-flex-middle">
+      <div
+        id="login"
+        class="uk-card uk-card-default uk-card-body uk-width-1-2@m"
+      >
+        <div class="uk-flex uk-flex-center uk-flex-middle">
+          <h2>Netcentric Computing Assignment</h2>
+        </div>
+        <div class="uk-flex uk-flex-center">
+          <button
+            id="login-button"
+            onclick="login()"
+            class="uk-button uk-button-primary uk-button-default"
+          >
+            Login with google
+          </button>
+          <div id="loader" style="display:none" class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="dashboard"
+        style="display:none"
+        class="uk-card uk-card-default uk-card-body uk-width-1-2@m"
+      >
+        <div class="uk-card-header uk-flex uk-flex-">
+          <div class="">
+            <img
+              id="profileImage"
+              class="uk-border-circle"
+              width="60"
+              height="60"
+              src=""
+            />
+          </div>
+        </div>
+        <div class="uk-card-body">
+          <dl class="uk-description-list">
+            <dt>User Name</dt>
+            <dd id="userName">-</dd>
+            <dt>Email</dt>
+            <dd id="email">-</dd>
+            <dt>Last Login</dt>
+            <dd id="lastLogin">-</dd>
+          </dl>
+          <button
+            onclick="logout()"
+            class="uk-button uk-button-danger uk-button-default"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyBNOXoaLliPSe0MIj1bn1V0sS1c-RQ9FLc',
+        authDomain: 'fir-assignment-57ffa.firebaseapp.com',
+        databaseURL: 'https://fir-assignment-57ffa.firebaseio.com',
+        projectId: 'fir-assignment-57ffa',
+        storageBucket: 'fir-assignment-57ffa.appspot.com',
+        messagingSenderId: '398801787968',
+        appId: '1:398801787968:web:a66b98cd2bc638a0'
+      }
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig)
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
